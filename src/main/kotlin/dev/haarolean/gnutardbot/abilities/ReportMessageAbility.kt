@@ -16,13 +16,13 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 class ReportMessageAbility(private val bot: TardBot) : AbilityProvider {
     override fun buildAbility(): Ability {
         return Ability
-                .builder()
-                .name("report")
-                .locality(Locality.GROUP)
-                .privacy(Privacy.PUBLIC)
-                .action { ctx: MessageContext -> reportMessage(ctx) }
-                .post { ctx: MessageContext -> bot.deleteMessage(ctx) }
-                .build()
+            .builder()
+            .name("report")
+            .locality(Locality.GROUP)
+            .privacy(Privacy.PUBLIC)
+            .action { reportMessage(it) }
+            .post { bot.deleteMessage(it) }
+            .build()
     }
 
     private fun reportMessage(ctx: MessageContext) {
@@ -40,7 +40,8 @@ class ReportMessageAbility(private val bot: TardBot) : AbilityProvider {
                 bot.execute(ForwardMessage(adminId.toString(), chatId, reply.messageId))
             } catch (e: TelegramApiException) {
                 if (e.message?.contains("[400]") == true
-                        || e.message?.contains("[403]") == true) return
+                    || e.message?.contains("[403]") == true
+                ) return
                 throw RuntimeException(e)
             }
         }
