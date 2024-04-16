@@ -58,6 +58,6 @@ class CheckLinksAbility(private val bot: TardBot) : AbilityHandler {
         val replyMessage = bot.silent().execute(replyRequest)
         bot.silent().execute(DeleteMessage(chatId, message.messageId))
         bot.silent().execute(banRequest)
-        replyMessage.ifPresent { msg: Message -> bot.silent().execute(DeleteMessage(chatId, msg.messageId)) }
+        replyMessage.ifPresent { bot.silent().execute(DeleteMessage(chatId, it.messageId)) }
     }
 }

@@ -8,11 +8,12 @@ import org.telegram.abilitybots.api.objects.*
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-class DefaultAbility(private val bot: TardBot) : AbilityProvider {
+class DefaultAbility(bot: TardBot) : AbilityProvider {
     private val abilities: MutableList<AbilityHandler> = mutableListOf(
         TrollingAbility(bot),
         CheckLinksAbility(bot),
-        UnpinDiscussionAbility(bot)
+        UnpinDiscussionAbility(bot),
+        BanSenderChatMessagesAbility(bot)
     ) //Our "default" abilities
 
     override fun buildAbility(): Ability {
