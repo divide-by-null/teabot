@@ -13,7 +13,8 @@ class DefaultAbility(bot: TardBot) : AbilityProvider {
         TrollingAbility(bot),
         CheckLinksAbility(bot),
         UnpinDiscussionAbility(bot),
-        BanSenderChatMessagesAbility(bot)
+        BanSenderChatMessagesAbility(bot),
+        ForwardSuggestionsAbility(bot)
     ) //Our "default" abilities
 
     override fun buildAbility(): Ability {

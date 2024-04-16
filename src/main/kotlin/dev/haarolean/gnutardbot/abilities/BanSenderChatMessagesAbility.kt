@@ -15,6 +15,7 @@ class BanSenderChatMessagesAbility(private val bot: TardBot): AbilityHandler {
             update.hasEditedMessage() -> update.editedMessage
             else -> return false
         }
+        if(message.isUserMessage) return false
         if(!message.senderChat.isChannelChat) return false
         val senderChatId = message.senderChat.id
         val chat = bot.execute(GetChat
