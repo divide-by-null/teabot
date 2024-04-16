@@ -19,7 +19,7 @@ class CheckLinksAbility(private val bot: TardBot) : AbilityHandler {
         if (AbilityUtils.isUserMessage(update)) return false
         val message: Message = when {
             update.hasMessage() -> update.message
-            update.hasEditedMessage() -> update.message
+            update.hasEditedMessage() -> update.editedMessage
             else -> return false
         }
         val sender = message.from

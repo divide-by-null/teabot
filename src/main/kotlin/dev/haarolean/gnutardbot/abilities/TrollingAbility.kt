@@ -22,7 +22,7 @@ class TrollingAbility(private val bot: TardBot) : AbilityHandler {
         val update = ctx.update()
         val message: Message = when {
             update.hasMessage() -> update.message
-            update.hasEditedMessage() -> update.message
+            update.hasEditedMessage() -> update.editedMessage
             else -> return false
         }
         if(message.text == null) return false
