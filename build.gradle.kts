@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-group = "dev.haarolean.gnutardbot"
+group = "dev.dividebynull.teabot"
 version = "1.0.0-SNAPSHOT"
-description = "GnuTardBot"
+description = "TeaBot"
 
 java.sourceCompatibility = JavaVersion.VERSION_17
 
@@ -54,7 +54,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.bootJar {
-    archiveFileName.set("gnutardbot.jar")
+    archiveFileName.set("teabot.jar")
 }
 
 // Tests

@@ -1,6 +1,6 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import org.springframework.beans.factory.config.BeanDefinition
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
@@ -13,7 +13,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-class ReportMessageAbility(private val bot: TardBot) : AbilityProvider {
+class ReportMessageAbility(private val bot: TeaBot) : AbilityProvider {
     override fun buildAbility(): Ability {
         return Ability
             .builder()

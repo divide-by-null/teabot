@@ -1,7 +1,11 @@
-package dev.haarolean.gnutardbot
+package dev.dividebynull.teabot
 
-import dev.haarolean.gnutardbot.abilities.*
-import dev.haarolean.gnutardbot.app.props.BotProperties
+import dev.dividebynull.teabot.abilities.BanAbility
+import dev.dividebynull.teabot.abilities.DefaultAbility
+import dev.dividebynull.teabot.abilities.NukeAbility
+import dev.dividebynull.teabot.abilities.ReportMessageAbility
+import dev.dividebynull.teabot.abilities.*
+import dev.dividebynull.teabot.app.props.BotProperties
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.mapdb.DBMaker.fileDB
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -22,7 +26,7 @@ private val logger = KotlinLogging.logger {}
 
 @Component
 @EnableConfigurationProperties(BotProperties::class)
-class TardBot(val properties: BotProperties)
+class TeaBot(val properties: BotProperties)
     : AbilityBot(properties.token, BOT_NAME, MapDBContext(db), toggle) {
 
     init {
@@ -85,7 +89,7 @@ class TardBot(val properties: BotProperties)
                 .toggle("unban", "botUnban")
                 .toggle("report", "cmdList")
                 .turnOff("commands")
-        private const val BOT_NAME = "GnuTardBot"
+        private const val BOT_NAME = "TeaBot"
         private val db = fileDB("/tmp/$BOT_NAME")
                 .fileMmapEnableIfSupported()
                 .closeOnJvmShutdown()

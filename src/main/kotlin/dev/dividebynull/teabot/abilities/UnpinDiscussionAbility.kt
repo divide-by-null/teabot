@@ -1,10 +1,10 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import org.telegram.abilitybots.api.objects.MessageContext
 import org.telegram.telegrambots.meta.api.methods.pinnedmessages.UnpinChatMessage
 
-class UnpinDiscussionAbility(private val bot: TardBot) : AbilityHandler {
+class UnpinDiscussionAbility(private val bot: TeaBot) : AbilityHandler {
     override fun isApplicable(ctx: MessageContext): Boolean {
         if (!ctx.update().hasMessage()) return false
         val message = ctx.update().message

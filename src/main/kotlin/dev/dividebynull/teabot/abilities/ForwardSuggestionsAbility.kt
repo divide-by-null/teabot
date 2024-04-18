@@ -1,14 +1,14 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
-import dev.haarolean.gnutardbot.util.MemberUtils
+import dev.dividebynull.teabot.TeaBot
+import dev.dividebynull.teabot.util.MemberUtils
 import org.telegram.abilitybots.api.objects.MessageContext
 import org.telegram.telegrambots.meta.api.methods.ForwardMessage
 import org.telegram.telegrambots.meta.api.methods.groupadministration.GetChat
 import org.telegram.telegrambots.meta.api.objects.Message
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 
-class ForwardSuggestionsAbility(private val bot: TardBot): AbilityHandler {
+class ForwardSuggestionsAbility(private val bot: TeaBot): AbilityHandler {
     private val memberUtils: MemberUtils = (MemberUtils(bot))
 
     override fun isApplicable(ctx: MessageContext): Boolean {

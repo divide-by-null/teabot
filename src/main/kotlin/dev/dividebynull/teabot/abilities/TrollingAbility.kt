@@ -1,6 +1,6 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import org.telegram.abilitybots.api.objects.MessageContext
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage
 import org.telegram.telegrambots.meta.api.objects.Message
@@ -15,7 +15,7 @@ private val replyMessages = arrayOf(
     "Did someone say windows? I'd rather jump out of one than use it!",
     "Oh, 'windows'. The only thing that crashes more than my code."
 )
-class TrollingAbility(private val bot: TardBot) : AbilityHandler {
+class TrollingAbility(private val bot: TeaBot) : AbilityHandler {
     private val windowsPattern = Pattern.compile(".*windows.*")
 
     override fun isApplicable(ctx: MessageContext): Boolean {

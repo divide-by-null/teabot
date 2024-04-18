@@ -1,4 +1,4 @@
-package dev.haarolean.gnutardbot;
+package dev.dividebynull.teabot;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Disabled
-class GnuTardBotApplicationTests {
+class TeaBotApplicationTests {
 
 	@Test
 	void contextLoads() {

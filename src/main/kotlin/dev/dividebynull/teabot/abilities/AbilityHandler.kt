@@ -1,4 +1,4 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
 import org.telegram.abilitybots.api.objects.MessageContext
 

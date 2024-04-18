@@ -1,4 +1,4 @@
-package dev.haarolean.gnutardbot.app.props
+package dev.dividebynull.teabot.app.props
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

@@ -1,6 +1,6 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import org.springframework.beans.factory.config.BeanDefinition
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Component
@@ -8,7 +8,7 @@ import org.telegram.abilitybots.api.objects.*
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-class DefaultAbility(bot: TardBot) : AbilityProvider {
+class DefaultAbility(bot: TeaBot) : AbilityProvider {
     private val abilities: MutableList<AbilityHandler> = mutableListOf(
         TrollingAbility(bot),
         CheckLinksAbility(bot),

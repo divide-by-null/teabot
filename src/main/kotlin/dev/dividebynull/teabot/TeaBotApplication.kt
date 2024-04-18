@@ -1,11 +1,11 @@
-package dev.haarolean.gnutardbot
+package dev.dividebynull.teabot
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GnuTardBotApplication
+class TeaBotApplication
 
 fun main(args: Array<String>) {
-    runApplication<GnuTardBotApplication>(*args)
+    runApplication<TeaBotApplication>(*args)
 }

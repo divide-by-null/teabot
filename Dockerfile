@@ -1,6 +1,6 @@
 FROM ghcr.io/graalvm/native-image:ol8-java17-22 AS builder
 
-LABEL maintainer="Roman Zabaluev<gpg@haarolean.dev>"
+LABEL maintainer="Alexey Kolobov a.kolobov@protonmail.com"
 
 RUN microdnf update \
  && microdnf install --nodocs \
@@ -33,17 +33,17 @@ FROM azul/zulu-openjdk-alpine:21-jre-headless
 
 RUN apk add gcompat
 
-RUN addgroup -S tardbot && adduser -S tardbot -G tardbot
+RUN addgroup -S teabot && adduser -S tardbot -G teabot
 
-USER tardbot
+USER teabot
 
 EXPOSE 8080
 
 VOLUME config
 
-COPY --from=builder /build/build/libs/gnutardbot.jar "/gnutardbot.jar"
+COPY --from=builder /build/build/libs/teabot.jar "/teabot.jar"
 
-CMD java -jar gnutardbot.jar
+CMD java -jar teabot.jar
 
 #HEALTHCHECK --start-period=30s --interval=30s --timeout=3s --retries=3 \
 #            CMD curl --silent --fail --request GET http://localhost:8080/actuator/health \

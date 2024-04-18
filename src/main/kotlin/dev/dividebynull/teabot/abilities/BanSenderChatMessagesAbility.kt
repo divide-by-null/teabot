@@ -1,13 +1,13 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import org.telegram.abilitybots.api.objects.MessageContext
 import org.telegram.telegrambots.meta.api.methods.groupadministration.BanChatSenderChat
 import org.telegram.telegrambots.meta.api.methods.groupadministration.GetChat
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage
 import org.telegram.telegrambots.meta.api.objects.Message
 
-class BanSenderChatMessagesAbility(private val bot: TardBot): AbilityHandler {
+class BanSenderChatMessagesAbility(private val bot: TeaBot): AbilityHandler {
     override fun isApplicable(ctx: MessageContext): Boolean {
         val update = ctx.update()
         val message: Message = when {

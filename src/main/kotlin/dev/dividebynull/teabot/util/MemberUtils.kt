@@ -1,4 +1,4 @@
-package dev.haarolean.gnutardbot.util
+package dev.dividebynull.teabot.util
 
 import org.telegram.abilitybots.api.bot.AbilityBot
 import org.telegram.telegrambots.meta.api.methods.groupadministration.GetChatMember

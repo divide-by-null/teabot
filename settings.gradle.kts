@@ -3,4 +3,4 @@ pluginManagement {
 //    includeBuild("build-logic")
 }
 
-rootProject.name = "gnutardbot"
+rootProject.name = "teabot"

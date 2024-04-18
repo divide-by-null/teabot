@@ -1,6 +1,6 @@
-package dev.haarolean.gnutardbot.abilities
+package dev.dividebynull.teabot.abilities
 
-import dev.haarolean.gnutardbot.TardBot
+import dev.dividebynull.teabot.TeaBot
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.beans.factory.config.BeanDefinition
 import org.springframework.context.annotation.Scope
@@ -15,39 +15,43 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException
 private val logger = KotlinLogging.logger {}
 
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-class NukeAbility(private val bot: TardBot) : AbilityProvider {
+class BanAbility(private val bot: TeaBot) : AbilityProvider {
 
     override fun buildAbility(): Ability {
         return Ability
             .builder()
-            .name("nuke")
-            .info("Nuke spammer")
-            .locality(Locality.ALL)
+            .name("ban")
+            .info("ban")
+            .locality(Locality.GROUP)
             .privacy(Privacy.ADMIN)
-            .action { nuke(it) }
+            .action { ban(it) }
             .post { bot.deleteMessage(it) }
             .build()
     }
 
-
-    private fun nuke(ctx: MessageContext) {
+    private fun ban(ctx: MessageContext) {
         val message = ctx.update().message
         val reply = message.replyToMessage ?: return
-        val target = reply.from
-        if (bot.isAdmin(target.id)) return
-        if (bot.isGroupAdmin(ctx.update(), target.id)) return
+        val targetToBan = reply.from
+        if (bot.isAdmin(targetToBan.id)) return
+        if (bot.isGroupAdmin(ctx.update(), targetToBan.id)) return
         val chatId = message.chatId.toString()
         try {
-            val request = BanChatMember
+            val banRequest = BanChatMember
                 .builder()
                 .chatId(chatId)
-                .userId(target.id)
-                .revokeMessages(true)
+                .userId(targetToBan.id)
+                .revokeMessages(false)
                 .build()
-            bot.execute(request)
+            bot.execute(banRequest)
+            val deleteRequest = DeleteMessage
+                .builder()
+                .chatId(chatId)
+                .messageId(message.messageId)
+                .build()
+            bot.silent().execute(deleteRequest)
         } catch (e: TelegramApiException) {
             logger.error(e) { "Error" }
         }
-        bot.silent().execute(DeleteMessage(chatId, reply.messageId))
     }
 }
